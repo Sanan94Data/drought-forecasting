@@ -10,7 +10,7 @@ This repository contains the code, datasets, and methodology for my data science
 - `data/`: Contains cleaned CSV files used in analysis
 - `eda/`: Contains generated visualizations (plots, heatmaps, etc.)
 - `methodology_diagram.png`: Visual overview of project workflow
-- data_preparation.py: Loads and merges raw climate datasets, creates the drought label, splits the data into training and test sets with stratification, and standardizes predictor variables for modeling.
+- `data_preparation_modelling.py`: Loads and merges raw climate datasets, creates the drought label, splits the data into training and test sets with stratification, and standardizes predictor variables for modeling.
 
 
 
