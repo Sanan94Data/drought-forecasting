@@ -1,39 +1,73 @@
-# drought-forecasting
-"Machine learning analysis of drought conditions in the Canadian Prairies"
-# Drought Forecasting in the Canadian Prairies 🌾💧
+🌾 Drought Forecasting in the Canadian Prairies 💧
+Machine Learning Analysis of Drought Conditions (1982–2022)
 
-This repository contains the code, datasets, and methodology for my data science project on forecasting drought events using climate data from 2012 to 2022.
+This repository contains the complete pipeline for forecasting droughts in the Canadian Prairies using historical climate data from 1982 to 2022. The project focuses on building and comparing four machine learning models for binary drought classification using two key features: precipitation and evapotranspiration.
 
-## 📂 Project Structure
+📂 Project Files
+CHIRPS_Monthly_Prairies_1982_2022.csv – Monthly precipitation (mm) from CHIRPS
 
-- `drought_eda.py`: Exploratory Data Analysis script
-- `data/`: Contains cleaned CSV files used in analysis
-- `eda/`: Contains generated visualizations (plots, heatmaps, etc.)
-- `methodology_diagram.png`: Visual overview of project workflow
-- `data_preparation_modelling.py`: Loads and merges raw climate datasets, creates the drought label, splits the data into training and test sets with stratification, and standardizes predictor variables for modeling.
+ERA5_Evapotranspiration_Prairies_1982_2022.csv – Monthly evapotranspiration (mm) from ERA5-Land
 
+PDSI_TerraClimate_Prairies_1982_2022.csv – Palmer Drought Severity Index from TerraClimate
 
+EDA_Climate.py – Optional script for exploratory data analysis
 
-## 📊 Key Datasets
+data_preparation_modelling.py – Merges and processes the raw datasets, generates a binary drought label, and outputs the final dataset
 
-- **CHIRPS** – Precipitation (mm)
-- **ERA5-Land** – Evapotranspiration (mm)
-- **TerraClimate** – Palmer Drought Severity Index (PDSI)
+final_ml_model.py – Trains and evaluates Logistic Regression, Random Forest, XGBoost, and SVM models
 
-## 🔍 Goals
+README.md – Project overview and documentation
 
-- Identify drought patterns across Alberta, Saskatchewan, and Manitoba
-- Create binary drought labels using PDSI < -0.5
-- Develop a machine learning model to forecast droughts using precipitation and evapotranspiration
+🔍 Objectives
+Merge satellite climate datasets from CHIRPS, ERA5-Land, and TerraClimate
 
-## 🧠 Tools Used
+Create binary drought labels where:
 
-- Python (pandas, NumPy, matplotlib, seaborn)
-- Google Earth Engine
-- Jupyter Notebook
+1 = drought if normalized PDSI < -0.5
 
-## 👤 Author
+0 = no drought otherwise
 
-Sanan Thushanthan  
-Toronto Metropolitan University – MDSA Program  
+Build, tune, and evaluate four ML models to predict drought:
+
+Logistic Regression
+
+Random Forest
+
+XGBoost
+
+Support Vector Machine (SVM)
+
+📊 Features Used
+mean_precip_mm – Monthly mean precipitation
+
+evap_mm – Monthly evapotranspiration
+
+🧪 Modeling Process
+All models follow the same workflow:
+
+Stratified 80/20 train-test split
+
+Feature standardization using StandardScaler
+
+5-fold cross-validation (via GridSearchCV)
+
+Evaluation metrics: F1-score, accuracy, ROC-AUC, confusion matrix, classification report
+
+ROC curve visualization
+
+🛠️ Tools & Libraries
+Python 3
+
+pandas, NumPy
+
+scikit-learn
+
+xgboost
+
+matplotlib, seaborn
+
+👤 Author
+Sanan Thushanthan
+Toronto Metropolitan University – Master of Data Science and Analytics (MDSA)
 Supervisor: Dr. Farid Shirazi
+
